@@ -73,15 +73,18 @@ Next:
 
 _Write a script that will take all of the JPGs in the current directory, convert them to PNGs, and then assemble all of the PNGs in the current directory into a file called `montage.png` using the `montage` command. Paste that script here._
 
+`#!/bin/bash > CiaraHomework03.sh`
+`vi CiaraHomework03.sh` and then copy and paste in to look like below
+
 #Homework02 problem 3
-#!/bin/bash
+`#!/bin/bash`
 #does this need to be in my script? chmod a+x CiaraHomework03.sh
-set -eu
+`set -eu`
 #Script to convert all JPGs to PNGs
-ls *.jpg | parallel convert {} {.}.png
+`ls *.jpg | parallel convert {} {.}.png`
 
 #Assemble all PNGs into a the file montage.png
-montage -tile x2 *.png montage.png
+`montage -tile x2 *.png montage.png`
 
 #Just for sanity sake to know if it ran
-echo 'Compliation Completed'
+`echo 'Compliation Completed'`
