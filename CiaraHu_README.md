@@ -54,27 +54,13 @@ _Use parallel to convert all of the JPGs in this directory to PNG images._
 `ls *.jpg | parallel convert {} {.}.png`
 
 Big hint: There is a very similar sort of command in the "Compute intensive jobs and substitution" section of the `parallel` man page.
-    "EXAMPLE: Compute intensive jobs and substitution
-           If ImageMagick is installed this will generate a thumbnail of a jpg file:
-            convert -geometry 120 foo.jpg thumb_foo.jpg
-          This will run with number-of-cpus jobs in parallel for all jpg files in a directory:
-           ls *.jpg | parallel convert -geometry 120 {} thumb_{}
-        To do it recursively use find:
-          find . -name '*.jpg' | \
-            parallel convert -geometry 120 {} {}_thumb.jpg
-        Notice how the argument has to start with {} as {} will include path (e.g. running  convert -geometry 120
-        ./foo/bar.jpg thumb_./foo/bar.jpg would clearly be wrong). The command will generate files like
-       ./foo/bar.jpg_thumb.jpg.
-       Use {.} to avoid the extra .jpg in the file name. This command will make files like ./foo/bar_thumb.jpg:
-         find . -name '*.jpg' | \
-           parallel convert -geometry 120 {} {.}_thumb.jpg"
 
 Next:
 
 _Write a script that will take all of the JPGs in the current directory, convert them to PNGs, and then assemble all of the PNGs in the current directory into a file called `montage.png` using the `montage` command. Paste that script here._
 
-`#!/bin/bash > CiaraHomework03.sh`
-`vi CiaraHomework03.sh` and then copy and paste in to look like below
+`#!/bin/bash > CiaraHomework02.sh`
+`vi CiaraHomework02.sh` and then copy and paste in to look like below
 
 #Homework02 problem 3
 `#!/bin/bash`
