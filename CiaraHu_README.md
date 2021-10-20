@@ -11,7 +11,7 @@ Replace the lines specified in _italics_ with your answers and save as a text fi
 
 Complete the interactive tutorial.
 
-In the 05-history it took a very long time for me to get the "ctrl-r" to search and I have to do the search in the terminal instead of in the history | less list. I also do not understand what the "fc" was doing. I also think that the "bash" and "./" are the same, but you have to input commands in the script file if you want to use "./". Finally, I was unable to restore files from snapshot after removing them. Is it because I am not using a computer at Fred Hutch, but since I was on rhino it should still work though???
+_In the 05-history it took a very long time for me to get the "ctrl-r" to search and I have to do the search in the terminal instead of in the history | less list. I also do not understand what the "fc" was doing. I also think that the "bash" and "./" are the same, but you have to input commands in the script file if you want to use "./". Finally, I was unable to restore files from snapshot after removing them. Is it because I am not using a computer at Fred Hutch, but since I was on rhino it should still work though???_
 
 
 ## Problem 1
@@ -22,6 +22,8 @@ Learn about the difference between standard out ("stdout") and standard error ("
 Note that in reading this article, you don't need to come up with a script that will throw an error: we have one at `tfcb_2021/lectures/lecture03/scripting/script2.sh`.
 
 _Write a command here that redirects stdout from `script2.sh` to a file named `stdout.txt` and redirects stderr to a file named `stderr.txt`._
+
+_Problem 1: `bash script2.sh 1> stdout.txt 2> stderr.txt`_
 
 
 ## Problem 2
@@ -49,8 +51,23 @@ You can confirm proper conversion using `file`.
 Now, your turn:
 
 _Use parallel to convert all of the JPGs in this directory to PNG images._
+`ls *.jpg | parallel convert {} {.}.png`
 
 Big hint: There is a very similar sort of command in the "Compute intensive jobs and substitution" section of the `parallel` man page.
+    "EXAMPLE: Compute intensive jobs and substitution
+           If ImageMagick is installed this will generate a thumbnail of a jpg file:
+            convert -geometry 120 foo.jpg thumb_foo.jpg
+          This will run with number-of-cpus jobs in parallel for all jpg files in a directory:
+           ls *.jpg | parallel convert -geometry 120 {} thumb_{}
+        To do it recursively use find:
+          find . -name '*.jpg' | \
+            parallel convert -geometry 120 {} {}_thumb.jpg
+        Notice how the argument has to start with {} as {} will include path (e.g. running  convert -geometry 120
+        ./foo/bar.jpg thumb_./foo/bar.jpg would clearly be wrong). The command will generate files like
+       ./foo/bar.jpg_thumb.jpg.
+       Use {.} to avoid the extra .jpg in the file name. This command will make files like ./foo/bar_thumb.jpg:
+         find . -name '*.jpg' | \
+           parallel convert -geometry 120 {} {.}_thumb.jpg"
 
 Next:
 
