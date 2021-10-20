@@ -80,6 +80,8 @@ _Write a script that will take all of the JPGs in the current directory, convert
 `#!/bin/bash`
 #does this need to be in my script? chmod a+x CiaraHomework03.sh
 `set -eu`
+`ml ImageMagick`
+`ml parallel`
 #Script to convert all JPGs to PNGs
 `ls *.jpg | parallel convert {} {.}.png`
 
